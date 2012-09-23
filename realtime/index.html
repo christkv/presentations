@@ -4,10 +4,10 @@
 	<head>
 		<meta charset="utf-8">
 		
-		<title>reveal.js - The HTML Presentation Framework</title>
+		<title>realtime&#8482;</title>
 
-		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-		<meta name="author" content="Hakim El Hattab">
+		<meta name="description" content="Writing a simple realtime hardware monitor">
+		<meta name="author" content="Christian Kvalheim">
 
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -40,86 +40,87 @@
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 				<section>
-					<h1>Reveal.js</h1>
-					<h3>HTML Presentations Made Easy</h3>
+					<h1>realtime&#8482;</h1>
+					<h3>Writing a simple realtime hardware monitor</h3>
 				</section>
 				
 				<section>
-					<h2>Heads Up</h2>
+					<h2>real-time (adj)</h2>
+					<blockquote>
+						(Electronics & Computer Science / Computer Science) denoting or relating to a data-processing system in which a computer receives constantly changing data, such as information relating to air-traffic control, travel booking systems, etc., and processes it sufficiently rapidly to be able to control the source of the data
+					</blockquote>
 					<p>
-						reveal.js is a framework for easily creating beautiful presentations using HTML. You'll need a browser with 
-						support for CSS 3D transforms to see it in its full glory.
-					</p>
-					<p>
-						<i><small>- <a href="http://hakim.se">Hakim El Hattab</a> / <a href="http://twitter.com/hakimel">@hakimel</a></small></i>
-					</p>
-
-					<aside class="notes">
-						Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you run the speaker notes server.
-					</aside>
-				</section>
-				
-				<!-- Example of nested vertical slides -->
-				<section>
-					<section>
-						<h2>Vertical Slides</h2>
-						<p>
-							Slides can be nested inside of other slides,
-							try pressing <a href="#/2/1">down</a>.
-						</p>
-						<a href="#/2/1" class="image">
-							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-						</a>
-					</section>
-					<section>
-						<h2>Basement Level 1</h2>
-						<p>Press down or up to navigate.</p>
-					</section>
-					<section>
-						<h2>Basement Level 2</h2>
-						<p>Cornify</p>
-						<a class="test" href="http://cornify.com">
-							<img width="280" height="326" src="https://s3.amazonaws.com/hakim-static/reveal-js/cornify.gif" alt="Unicorn">
-						</a>
-					</section>
-					<section>
-						<h2>Basement Level 3</h2>
-						<p>That's it, time to go back up.</p>
-						<a href="#/2" class="image">
-							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Up arrow" style="-webkit-transform: rotate(180deg);">
-						</a>
-					</section>
-				</section>
-
-				<section>
-					<h2>Holistic Overview</h2>
-					<p>
-						Press <strong>ESC</strong> to enter the slide overview!
+						<i><small>- <a href="http://christiankvalheim.com">Christian Kvalheim</a> / <a href="http://twitter.com/christkv">@christkv</a></small></i>
 					</p>
 				</section>
 
 				<section>
-					<h2>rvl.io</h2>
-					<p>
-						If you don't like writing slides in HTML you can use the online editor <a href="http://www.rvl.io" target="_blank">rvl.io</a>.
-					</p>
-				</section>
-
-				<section>
-					<h2>Works in Mobile Safari</h2>
-					<p>
-						Try it out! You can swipe through the slides pinch your way to the overview.
-					</p>
-				</section>
-
-				<section>
-					<h2>Marvelous Unordered List</h2>
+					<h2>The traditional realtime</h2>
 					<ul>
-						<li>No order here</li>
-						<li>Or here</li>
-						<li>Or here</li>
-						<li>Or here</li>
+						<li>Real time os (RTOS)</li>
+						<li>Known latency</li>
+						<li>Known end to end processing time</li>
+						<li>Controlled environment</li>
 					</ul>
+				</section>
+				
+				<section>
+					<h2>Our definiton of realtime</h2>
+					<ul>
+						<li>Non realtime os (linux, bsd, osx, windows)</li>
+						<li>Completely random network topology</li>
+						<li>Unknown end to end processing time</li>
+						<li>Random hardware performance (HELLO AMAZON)</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Proposal for a new definition of realtime</h2>
+					<blockquote>
+						(Electronics & Computer Science / Computer Science) denoting or relating to a data-processing system in which a computer receives constantly changing data, such as information relating to air-traffic control, travel booking systems, etc., and processes it in an acceptable window of latency to control the source of data.
+					</blockquote>
+				</section>
+
+				<section>
+					<h2>Sample app realtime</h2>
+					<ul>
+						<li>Collect machine metrics on linux and osx</li>
+						<li>Publish them to a central server</li>
+						<li>Buffer and stream to client</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>node-psutil</h2>
+					<ul>
+						<li>Partial port of psutil from python</li>
+						<li>All operations using async (including C++)</li>
+						<li>Only supports linux/osx/darwin for now</li>
+						<li>Not all operations yet</li>
+					</ul>
+					<p/>
+					<p>
+						<a href="https://github.com/christkv/node-psutil" target="_blank">https://github.com/christkv/node-psutil</a>
+					</p>
+				</section>
+
+				<section>
+					<h2>Realtime&#8482;</h2>
+					<ul>
+						<li>Metrics collection agent</li>
+						<li>Collection server</li>
+						<li>Metrics buffering using mongodb</li>
+						<li>Websockets</li>
+						<li>Dashboard</li>
+					</ul>
+					<p/>
+					<p>
+						<a href="https://github.com/christkv/realtime" target="_blank">https://github.com/christkv/realtime</a>
+					</p>
+				</section>
+
+				<section>
+					<iframe src="http://localhost:8080/dashboard" width="1200" height="600" style="margin-left:-140px;/>
 				</section>
 				
 				<section>
