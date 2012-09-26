@@ -159,38 +159,21 @@
 
 				<section>
 					<h2>Capped collection in MongoDB</h2>
-					<ol>
-						<li>Used as ring-buffer</li>
-						<li>Fixed memory size</li>
-						<li>FIFO</li>
-						<li>Avoid additional IPC complexity</li>
-						<li>Can be replicated</li>
-					</ol>
-				</section>
-
-				<section>
-					<h2>Do you need ack?</h2>
-					<ul>
-						<li>UDP</li>
-              <ul>
-                <li>No order guarantee</li>
-                <li>Possible packet loss</li>
-                <li>Blocked a lot</li>
-              </ul>
-						<li>TCP</li>
-              <ul>
-                <li>In order</li>
-                <li>Single packet delay can cause stalls</li>
-              </ul>
-						<li>HTTP</li>
-              <ul>
-                <li>Like TCP but more overhead</li>
-              </ul>
-            <li>Websocket</li>
-              <ul>
-                <li>Like TCP but more overhead</li>
-              </ul>
-					</ul>
+          <table>
+            <tr>
+              <td><img src="./img/midg.ormen-ktj.png" width="200"/>&nbsp;&nbsp;&nbsp;</td>
+              <td valign="top">
+                <ol>
+                  <li>Used as ring-buffer</li>
+                  <li>Fixed memory size</li>
+                  <li>FIFO</li>
+                  <li>Avoid additional IPC complexity</li>
+                  <li>Can be replicated</li>
+                </ol>
+              </td>
+            </tr>
+          </table>
+          
 				</section>
 
         <section>
@@ -207,7 +190,108 @@
   ConnectionHandler.prototype.unsubscribe = function() {...}
           </code></pre>
         </section>
+
+				<section>
+					<h2>Do you need ack?</h2>
+					<ul>
+						<li>UDP</li>
+              <ul>
+                <li>No order guarantee</li>
+                <li>Possible packet loss</li>
+                <li>Nowhere in the browser</li>
+                <li>Possible to bridge with flash for javascript</li>
+              </ul>
+						<li>TCP/Websocket</li>
+              <ul>
+                <li>In order</li>
+                <li>Packet delay can cause stalls</li>
+                <li>SUCKS for realtime/gaming</li>
+              </ul>
+					</ul>
+				</section>
 				
+        <section>
+          <h2>The near future</h2>
+          <ol>
+            <li>WebRTC</li>
+            <li>Data channels</li>
+            <li>Not yet 1.0 spec but in chrome</li>
+          </ol>
+        </section>
+
+        <section>
+          <h2>Data channels</h2>
+          <table>
+            <tr> 
+              <th><strong>Services/Features</strong></th>
+              <th><strong>SCTP</strong></th>
+              <th><strong>TCP</strong></th>
+              <th><strong>UDP</strong></th>
+            </tr>
+            <tr> 
+              <td>Connection-oriented</td>
+              <td>yes</td>
+              <td>yes</td>
+              <td>no</td>
+            </tr>
+            <tr> 
+              <td>Full duplex</td>
+              <td>yes</td>
+              <td>yes</td>
+              <td>yes</td>
+            </tr>
+            <tr> 
+              <td>Reliable data transfer</td>
+              <td>yes</td>
+              <td>yes</td>
+              <td>no</td>
+            </tr>
+            <tr> 
+              <td>Partial-reliable data transfer</td>
+              <td>optional</td>
+              <td>no</td>
+              <td>no</td>
+            </tr>
+            <tr> 
+              <td>Ordered data delivery</td>
+              <td>yes</td>
+              <td>yes</td>
+              <td>no</td>
+            </tr>
+            <tr> 
+              <td><strong><u>Unordered data delivery</u></strong></td>
+              <td><strong>yes</strong></td>
+              <td>no</td>
+              <td>yes</td>
+            </tr>
+            <tr> 
+              <td>Flow control</td>
+              <td>yes</td>
+              <td>yes</td>
+              <td>no</td>
+            </tr>
+            <tr> 
+              <td>Congestion control</td>
+              <td>yes</td>
+              <td>yes</td>
+              <td>no</td>
+            </tr>
+            <tr> 
+              <td>ECN capable</td>
+              <td>yes</td>
+              <td>yes</td>
+              <td>no</td>
+            </tr>
+          </table>
+          <p/>
+          <h2>And more ... </h2>
+        </section>
+
+        <section>
+          <h2>So ...</h2>
+          <img src="./img/qXShv.jpeg"/>
+        </section>
+
         <section>
           <h2>Looking forward</h2>
           <ol>
@@ -229,8 +313,8 @@
         </section>
 
 				<section>
-					<h1>Q&A</h1>
-          <h2>Any questions?</h2>
+          <img src="./img/livehand.jpeg"/>
+          <h1>The End</h1>
 				</section>
 			</div>
 
