@@ -46,19 +46,10 @@
 				</section>
 
         <section>
-          <h2>Who am I</h2>
-          <h3>Christian Kvalheim</h3>
-          <ul>
-            <li>Wrote the node.js mongodb driver</li>
-            <li>Work for 10gen</li>
-            <li>Based in Barcelona</li>
-          </ul>
-          <p/>
-          <p>
-            <i><small>- <a href="http://christiankvalheim.com">http://christiankvalheim.com</a> / <a href="http://twitter.com/christkv">@christkv</a></small></i>
-          </p>
+          <h2>Emotional state when reading HN</h2>
+          <img src="./img/black+knight+defeated.jpeg"/>
         </section>
-				
+
 				<section>
 					<h2>real-time (adj)</h2>
 					<blockquote>
@@ -137,6 +128,21 @@
 					</p>
 				</section>
 
+        <section>
+          <h2>Server - Client protocol</h2>
+          <pre><code contenteditable>
+  ConnectionHandler.prototype.pause = function() {...}
+
+  ConnectionHandler.prototype.stop = function() {...}
+
+  ConnectionHandler.prototype.list = function() {...}
+
+  ConnectionHandler.prototype.subscribe = function() {...}
+
+  ConnectionHandler.prototype.unsubscribe = function() {...}
+          </code></pre>
+        </section>
+
 				<section>
 					<p>
 						<iframe id="app" src="http://localhost:8080/dashboard" width="1200" height="600" style="margin:0;overflow:hidden;border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px; margin-left:-140px" allowfullscreen> </iframe>
@@ -155,7 +161,7 @@
 						<li>Write to historic store</li>
 						<li>Stream data from capped collection to clients</li>
 					</ol>
-				</section>
+				</section>        
 
 				<section>
 					<h2>Capped collection in MongoDB</h2>
@@ -177,45 +183,63 @@
 				</section>
 
         <section>
-          <h2>Server - Client protocol</h2>
-          <pre><code contenteditable>
-  ConnectionHandler.prototype.pause = function() {...}
-
-  ConnectionHandler.prototype.stop = function() {...}
-
-  ConnectionHandler.prototype.list = function() {...}
-
-  ConnectionHandler.prototype.subscribe = function() {...}
-
-  ConnectionHandler.prototype.unsubscribe = function() {...}
-          </code></pre>
+          <h2>Realtime app realtime experimental</h2>
+          <ol>
+            <li>Extending Agent to be more generalized</li>
+            <li>Agent upgradable transport (UDP-TCP-Websocket-HTTP)</li>
+            <li>Finishing up complete app over time</li>
+            <li>Adding more metrics and aggregated metrics</li>
+            <li>Experiment with different realtime models</li>
+          </ol>
         </section>
+
+        <section>
+          <h1>Networking</h1>
+          <img src="./img/crazy_wiring_jobs_2.jpeg"/>
+        </section>        
 
 				<section>
 					<h2>Do you need ack?</h2>
 					<ul>
-						<li>UDP</li>
+						<li>TCP/Websocket</li>
+              <ul>
+                <li>In order</li>
+                <li>Packet delay can cause stalls</li>
+                <li>SUCKS for realtime/gaming</li>
+                <img src="./img/pfon79l.jpeg" width="350"/>
+              </ul>
+					</ul>
+				</section>
+
+        <section>
+          <h2>Do you need ack?</h2>
+          <ul>
+            <li>UDP</li>
               <ul>
                 <li>No order guarantee</li>
                 <li>Possible packet loss</li>
                 <li>Nowhere in the browser</li>
                 <li>Possible to bridge with flash for javascript</li>
               </ul>
-						<li>TCP/Websocket</li>
-              <ul>
-                <li>In order</li>
-                <li>Packet delay can cause stalls</li>
-                <li>SUCKS for realtime/gaming</li>
-              </ul>
-					</ul>
-				</section>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Do we have options ?</h2>
+          <ol>
+            <li>Flash-UDP bridge?</li>
+            <li>Native client?</li>
+            <li>Proper UDP support in the browser?</li>
+            <li>Data channel in webRTC (SCTP)</li>
+          </ol>
+        </section>
 				
         <section>
-          <h2>The near future</h2>
+          <h2>Let's talk WebRTC</h2>
           <ol>
-            <li>WebRTC</li>
             <li>Data channels</li>
             <li>Not yet 1.0 spec but in chrome</li>
+            <li>In order/out of order messages</li>
           </ol>
         </section>
 
@@ -292,29 +316,10 @@
           <img src="./img/qXShv.jpeg"/>
         </section>
 
-        <section>
-          <h2>Looking forward</h2>
-          <ol>
-            <li>Data channel in webRTC (UDP Maybe)</li>
-            <li>Flash-UDP bridge</li>
-            <li>Native client</li>
-            <li>Proper UDP support in the browser</li>
-          </ol>
-        </section>
-
-        <section>
-          <h2>Looking forward Sample App</h2>
-          <ol>
-            <li>Extending Agent to be more generalized</li>
-            <li>Agent upgradable transport (UDP-TCP-Websocket-HTTP)</li>
-            <li>Finishing up complete app over time</li>
-            <li>Adding more metrics and aggregated metrics</li>
-          </ol>
-        </section>
-
 				<section>
-          <img src="./img/livehand.jpeg"/>
-          <h1>The End</h1>
+          <img src="./img/2e26b9bc095211e28159123138178971_7.jpeg"/>
+          <h3>&#169;Daniel Gomes</h3>
+          <h1>The End</h1>          
 				</section>
 			</div>
 
